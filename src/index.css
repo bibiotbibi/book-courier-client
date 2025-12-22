@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&display=swap');
+@import "tailwindcss";
+
+
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+  themes: light --default;
+ }
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #5E2A2B;
+  --color-secondary: #C9A99A;
+}
+
+
+
+
+
+.body {
+  font-family: "Playwrite NO", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+

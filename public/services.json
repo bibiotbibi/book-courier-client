@@ -1,0 +1,103 @@
+  [
+  {
+    "region": "Dhaka",
+    "district": "Dhaka",
+    "city": "Dhaka",
+    "covered_area": ["Uttara", "Dhanmondi", "Mirpur", "Mohammadpur"],
+    "status": "active",
+    "flowchart": "https://example.com/dhaka-flowchart.png",
+    "longitude": 90.4125,
+    "latitude": 23.8103
+  },
+  {
+    "region": "Chattogram",
+    "district": "Chattogram",
+    "city": "Chattogram",
+    "covered_area": ["Panchlaish", "Agrabad", "Halishahar", "Patenga"],
+    "status": "active",
+    "flowchart": "https://example.com/chattogram-flowchart.png",
+    "longitude": 91.7832,
+    "latitude": 22.3569
+  },
+  {
+    "region": "Sylhet",
+    "district": "Sylhet",
+    "city": "Sylhet",
+    "covered_area": ["Zindabazar", "Pathantula", "Balaganj", "Moulvibazar"],
+    "status": "active",
+    "flowchart": "https://example.com/sylhet-flowchart.png",
+    "longitude": 91.8687,
+    "latitude": 24.8949
+  },
+  {
+    "region": "Khulna",
+    "district": "Khulna",
+    "city": "Khulna",
+    "covered_area": ["KDA Colony", "Sonadanga", "Chowmuhani", "Naktala"],
+    "status": "active",
+    "flowchart": "https://example.com/khulna-flowchart.png",
+    "longitude": 89.5403,
+    "latitude": 22.8456
+  },
+  {
+    "region": "Rajshahi",
+    "district": "Rajshahi",
+    "city": "Rajshahi",
+    "covered_area": ["Laxmipur", "Boalia", "Uposhohor", "Gopalpur"],
+    "status": "active",
+    "flowchart": "https://example.com/rajshahi-flowchart.png",
+    "longitude": 88.6241,
+    "latitude": 24.3636
+  },
+  {
+    "region": "Rangpur",
+    "district": "Rangpur",
+    "city": "Rangpur",
+    "covered_area": ["Cantonment", "Gonokpara", "Kazla", "Sadar"],
+    "status": "active",
+    "flowchart": "https://example.com/rangpur-flowchart.png",
+    "longitude": 89.2752,
+    "latitude": 25.7439
+  },
+  {
+    "region": "Barishal",
+    "district": "Barishal",
+    "city": "Barishal",
+    "covered_area": ["Kawnia", "Bahrar", "Wazirpur", "Laxmipur"],
+    "status": "active",
+    "flowchart": "https://example.com/barishal-flowchart.png",
+    "longitude": 90.3535,
+    "latitude": 22.7010
+  },
+  {
+    "region": "Mymensingh",
+    "district": "Mymensingh",
+    "city": "Mymensingh",
+    "covered_area": ["Bhaluka", "Trishal", "Haluaghat", "Kewatkhali"],
+    "status": "active",
+    "flowchart": "https://example.com/mymensingh-flowchart.png",
+    "longitude": 90.4203,
+    "latitude": 24.7471
+  },
+  {
+    "region": "Cox's Bazar",
+    "district": "Cox's Bazar",
+    "city": "Cox's Bazar",
+    "covered_area": ["Laboni", "Ukhia", "Teknaf", "Kolatoli"],
+    "status": "active",
+    "flowchart": "https://example.com/coxbazar-flowchart.png",
+    "longitude": 92.0058,
+    "latitude": 21.4272
+  },
+  {
+    "region": "Bandarban",
+    "district": "Bandarban",
+    "city": "Bandarban",
+    "covered_area": ["Nilgiri", "Alikadam", "Thanchi", "Sadar"],
+    "status": "active",
+    "flowchart": "https://example.com/bandarban-flowchart.png",
+    "longitude": 92.2185,
+    "latitude": 21.9510
+  }
+]
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
