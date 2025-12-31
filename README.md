@@ -1,16 +1,52 @@
-# React + Vite
+# 📚 Book Courier
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Book Courier is a modern online book delivery website where users can browse books,
+place orders, and manage deliveries through a clean and responsive user interface.
 
-Currently, two official plugins are available:
+🔗 **Live Website:** https://book-courier-fff3d.web.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📸 Screenshot
+![Book Courier Screenshot](https://i.ibb.co.com/TqRShJj5/Screenshot-32.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
+- React.js
+- Vite
+- Tailwind CSS
+- Firebase Authentication
+- Node.js
+- Express.js
+- MongoDB
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Core Features
+- User authentication (Login & Register)
+- Browse and view available books
+- Order books for delivery
+- User dashboard to manage orders
+- Responsive design for mobile, tablet, and desktop
+- Secure authentication and data handling
+
+---
+
+## 📦 Dependencies Used
+- react
+- react-dom
+- react-router-dom
+- axios
+- firebase
+- tailwindcss
+
+---
+
+## 🚀 Run Project Locally
+
+Follow the steps below to run this project on your local machine:
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/yourusername/book-courier-client.git
