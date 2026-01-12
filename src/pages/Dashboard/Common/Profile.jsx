@@ -56,78 +56,98 @@ const Profile = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50">
-      <div className="bg-white shadow-lg rounded-2xl md:w-4/5 lg:w-4/5">
+  <div className="flex justify-center items-center min-h-screen bg-secondary/20">
+  <div className="bg-white shadow-2xl rounded-3xl md:w-4/5 lg:w-3/5 overflow-hidden animate-fade-in">
 
+    {/* Cover */}
+    <div className="relative">
+      <img
+        alt="cover"
+        src="https://i.ibb.co.com/GvY2DJ2M/Screenshot-9-removebg-preview.png"
+        className="w-full h-44 object-cover"
+      />
+      <div className="absolute inset-0 bg-primary/60"></div>
+    </div>
+
+    {/* Profile */}
+    <div className="flex flex-col items-center p-6 -mt-20 relative z-10">
+
+      {/* Avatar */}
+      <div className="relative group">
         <img
-          alt="cover"
-          src="https://i.ibb.co.com/GvY2DJ2M/Screenshot-9-removebg-preview.png"
-          className="w-full rounded-t-lg h-36 object-cover"
+          src={preview}
+          alt=""
+          className="mx-auto object-cover rounded-full h-28 w-28 border-4 border-secondary shadow-xl
+          transition-all duration-500 group-hover:scale-110"
         />
+        <div className="absolute inset-0 rounded-full ring-4 ring-primary/40 animate-pulse"></div>
+      </div>
 
-        <div className="flex flex-col items-center justify-center p-4 -mt-16">
-          <img
-            src={preview}
-            alt=""
-            className="mx-auto object-cover rounded-full h-24 w-24 border-2 border-white"
-          />
+      {/* Role */}
+      <p className="mt-4 px-6 py-1 text-xs text-secondary bg-primary rounded-full shadow-lg tracking-wide">
+        {role}
+      </p>
 
-          <p className="p-2 px-4 text-xs text-white bg-primary rounded-full mt-2">
-            {role}
-          </p>
+      <p className="mt-2 text-xs text-gray-500">
+        User ID: {user?.uid}
+      </p>
 
-          <p className="mt-2 text-sm text-gray-500">
-            User ID: {user?.uid}
-          </p>
+      {/* Form */}
+      <div className="w-full mt-8 bg-secondary/10 rounded-2xl shadow-lg p-6 space-y-6">
 
-          {/* UPDATE FORM */}
-          <div className="w-full p-4 mt-4 rounded-lg">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-              <div>
-                <label className="text-sm text-gray-600">Name</label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={e => setName(e.target.value)}
-                  className="input input-bordered w-full"
-                />
-              </div>
-
-              <div>
-                <label className="text-sm text-gray-600">Profile Photo</label>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={e => {
-                    setPhoto(e.target.files[0])
-                    setPreview(URL.createObjectURL(e.target.files[0]))
-                  }}
-                  className="input input-bordered w-full"
-                />
-              </div>
-
-            </div>
-
-            <div className="flex justify-end mt-6">
-              <button
-                onClick={handleUpdateProfile}
-                disabled={loading}
-                className="bg-primary px-10 py-2 rounded-lg text-white hover:bg-lime-800"
-              >
-                {loading ? 'Updating...' : 'Update Profile'}
-              </button>
-            </div>
+          <div>
+            <label className="text-xs font-semibold text-primary">Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={e => setName(e.target.value)}
+              className="input input-bordered w-full border-secondary focus:ring-2 focus:ring-primary transition"
+            />
           </div>
 
-          <div className="mt-4">
-            <p className="text-gray-700 font-medium">
-              Email: <span className="font-bold">{user?.email}</span>
-            </p>
+          <div>
+            <label className="text-xs font-semibold text-primary">Profile Photo</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={e => {
+                setPhoto(e.target.files[0])
+                setPreview(URL.createObjectURL(e.target.files[0]))
+              }}
+              className="input input-bordered w-full border-secondary
+             file:text-primary file:border-none
+              file:rounded-lg file:px-4 file:py-1"
+            />
           </div>
+
+        </div>
+
+        <div className="flex justify-end">
+          <button
+            onClick={handleUpdateProfile}
+            disabled={loading}
+            className="bg-primary px-12 py-3 rounded-xl text-secondary font-semibold shadow-xl
+            hover:bg-primary/90 hover:scale-[1.05] transition-all duration-300"
+          >
+            {loading ? 'Updating...' : 'Update Profile'}
+          </button>
         </div>
       </div>
+
+      {/* Email */}
+      <div className="mt-6 bg-secondary px-6 py-3 rounded-xl shadow-md">
+        <p className="text-primary text-sm">
+          Email: <span className="font-bold">{user?.email}</span>
+        </p>
+      </div>
+
     </div>
+  </div>
+</div>
+
+
   )
 }
 

@@ -21,20 +21,13 @@ const AuthLayout = () => {
           <Outlet />
         </div>
 
-        {/* Right side */}
-        <div className="flex-1 hidden md:flex items-center justify-center">
-          <img
-            src="https://i.ibb.co/GvY2DJ2M/Screenshot-9-removebg-preview.png"
-            alt="Decorative"
-            className="w-64 md:w-72 animate-float"
-          />
-        </div>
+        
 
       </div>
 
      
       <p className="mt-6 text-gray-400 text-sm">
-        &copy; 2025 YourWebsite. All rights reserved.
+        &copy; 2026 YourWebsite. All rights reserved.
       </p>
 
      

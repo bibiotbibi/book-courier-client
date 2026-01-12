@@ -8,6 +8,7 @@ const AdminMenu = () => {
       <MenuItem icon={FaUserCog} label='All Users' address='manage-users' />
       <MenuItem icon={FaBook} label='Manage Books' address='manage-books' />
       <MenuItem icon={FaBook} label='Seller Request' address='seller-request' />
+      <MenuItem icon={FaBook} label='Seller Request' address='seller-request' />
     </>
   )
 }

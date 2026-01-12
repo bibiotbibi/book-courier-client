@@ -1,44 +1,73 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { BookOpen, Users, Truck, MapPinned } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure"; // Adjust path as needed
 
-const stats = [
+// Helper to format numbers (e.g. 5000 -> 5K+)
+const formatNumber = (num) => {
+  if (!num) return "0+";
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1).replace('.0', '') + "K+";
+  }
+  return num + "+";
+};
+
+const statsConfig = [
   {
     id: 1,
     title: "Total Books",
-    value: "5K+",
+    key: "books", 
     icon: BookOpen,
     gradient: "from-indigo-500 to-purple-500",
   },
   {
     id: 2,
     title: "Happy Readers",
-    value: "2K+",
+    key: "users", 
     icon: Users,
     gradient: "from-emerald-500 to-teal-500",
   },
   {
     id: 3,
     title: "Books Delivered",
-    value: "3.5K+",
+    key: "orders",
     icon: Truck,
     gradient: "from-orange-500 to-pink-500",
   },
   {
     id: 4,
     title: "Cities Covered",
-    value: "25+",
+    key: "cities",
     icon: MapPinned,
     gradient: "from-sky-500 to-cyan-500",
   },
 ];
 
 const Statistics = () => {
+  const axiosSecure = useAxiosSecure();
+
+  // Fetch real stats from backend
+  const { data: statsData = {}, isLoading } = useQuery({
+    queryKey: ['stats'],
+    queryFn: async () => {
+      const res = await axiosSecure.get('/stats');
+      return res.data;
+    },
+  });
+
+  // Map the config to include real values
+  const displayStats = statsConfig.map((stat) => ({
+    ...stat,
+    value: formatNumber(statsData[stat.key]), // Get value from backend
+  }));
+
   return (
-    <section className="relative py-24 bg-gradient-to-br from-[#FBF9D1] via-primary to-secondary overflow-hidden">
+    <section className="relative my-5 py-24 bg-gradient-to-br from-[#FBF9D1]  to-[#FBF9D1] overflow-hidden">
       {/* Background Glow */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/30 rounded-full blur-3xl" />
-      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-purple- rounded-full blur-3xl" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-76 bg-secondary rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Heading */}
@@ -49,10 +78,10 @@ const Statistics = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
             BookCourier Impact
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-500 max-w-2xl mx-auto">
             Numbers that reflect our growth, trust, and commitment to readers
             across the country.
           </p>
@@ -60,7 +89,7 @@ const Statistics = () => {
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => {
+          {displayStats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <motion.div
@@ -76,16 +105,16 @@ const Statistics = () => {
                 <div
                   className={`w-16 h-16 mb-6 flex items-center justify-center rounded-2xl bg-gradient-to-r ${stat.gradient}`}
                 >
-                  <Icon className="w-8 h-8 text-white" />
+                  <Icon className="w-8 h-8 text-primary" />
                 </div>
 
                 {/* Value */}
-                <h3 className="text-4xl font-bold text-white mb-2">
-                  {stat.value}
+                <h3 className="text-4xl font-bold text-primary mb-2">
+                  {isLoading ? '...' : stat.value}
                 </h3>
 
                 {/* Title */}
-                <p className="text-lg text-gray-300 font-medium">
+                <p className="text-lg text-gray-500 font-medium">
                   {stat.title}
                 </p>
 

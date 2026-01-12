@@ -1,109 +1,122 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router";
+import { ChevronsDown } from "lucide-react";
 
 const slides = [
   {
-    image: "https://i.ibb.co/dwqF8qXm/Screenshot-13-removebg-preview.png",
+    image: "https://i.ibb.co/YFpgMP2x/download-8.jpg",
     title: "Discover Trending Books",
-    text: "Explore a wide collection of the most popular books across all genres.",
-    bgGradient: "from-purple-500 to-pink-500",
+    text: "Explore a curated collection of the most popular books across every genre.",
+    bgGradient: "from-purple-400/20 via-pink-400/10 to-transparent",
   },
   {
-    image: "https://i.ibb.co/Y4TmjF2J/Screenshot-16-removebg-preview.png",
-    title: "Read, Learn & Grow",
-    text: "Expand your knowledge with the best educational, fiction, and non-fiction books.",
-    bgGradient: "from-indigo-500 to-blue-500",
+    image: "https://i.ibb.co/PGhcXnqz/rey-seven-nm-m-Z4-Cs2-I-unsplash-1.jpg",
+    title: "Read. Learn. Grow.",
+    text: "Expand your knowledge with carefully selected educational and fiction titles.",
+    bgGradient: "from-indigo-400/20 via-blue-400/10 to-transparent",
   },
   {
-    image: "https://i.ibb.co/qYGCHvgw/Screenshot-15-removebg-preview.png",
-    title: "Your Favorite Library Online",
-    text: "Browse thousands of books and dive into a world of imagination.",
-    bgGradient: "from-emerald-400 to-teal-500",
+    image: "https://i.ibb.co/21Db91YH/nick-fewings-8sud-g8m-I0-unsplash.jpg",
+    title: "Your Online Book Library",
+    text: "Thousands of books, one beautiful reading destination.",
+    bgGradient: "from-emerald-400/20 via-teal-400/10 to-transparent",
   },
 ];
 
 const BookBanner = () => {
   const [current, setCurrent] = useState(0);
 
-  // Auto Slide every 5 seconds
   useEffect(() => {
-    const interval = setInterval(
+    const timer = setInterval(
       () => setCurrent((prev) => (prev + 1) % slides.length),
-      5000
+      5500
     );
-    return () => clearInterval(interval);
+    return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="relative w-full h-[90vh] overflow-hidden bg-[#FBF9D1]">
-      {/* Background Gradient + Glow */}
-      <div className="absolute inset-0 z-0">
-        
-      </div>
+    <section className="relative w-full min-h-[75vh] md:min-h-[80vh] bg-[#FBF9D1] overflow-hidden">
+      {/* Background */}
+      <div className={`absolute inset-0  ${slides[current].bgGradient}`} />
+      <div className="absolute inset-0 backdrop-blur-[2px]" />
 
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 py-10 gap-10 h-full">
-        {/* LEFT TEXT */}
-        <div className="flex-1 text-center md:text-left space-y-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 lg:px-24 py-16 flex flex-col md:flex-row items-center gap-14">
+        
+        {/* LEFT CONTENT */}
+        <div className="flex-1 space-y-6 text-center md:text-left">
           <AnimatePresence mode="wait">
             <motion.div
               key={slides[current].title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.7 }}
-              className="space-y-4"
+              exit={{ opacity: 0, y: -24 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">
+              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
                 {slides[current].title}
               </h1>
-              <p className="text-gray-600 text-lg md:text-xl max-w-md">
+
+              <p className="text-gray-600 text-lg leading-relaxed max-w-xl">
                 {slides[current].text}
               </p>
-              <Link to="/all-books">
-                <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px rgba(255,255,255,0.4)" }}
-                  className="px-8 py-3 bg-primary text-secondary hover:text-white font-bold rounded-xl shadow-lg hover:shadow-2xl transition-all"
-                >
-                  View All Books
-                </motion.button>
-              </Link>
             </motion.div>
           </AnimatePresence>
+
+          {/* CTA BUTTON */}
+          <div className="pt-4 flex justify-center md:justify-start">
+            <Link to="/all-books">
+              <motion.button
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="px-8 py-3 border-2 border-secondary rounded-xl text-primary font-semibold bg-white/70 backdrop-blur shadow-lg hover:bg-white"
+              >
+                Browse Books
+              </motion.button>
+            </Link>
+          </div>
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="flex-1 flex items-center justify-center relative">
+        <div className="flex-1  flex justify-center items-center">
           <AnimatePresence mode="wait">
             <motion.img
               key={slides[current].image}
               src={slides[current].image}
-              initial={{ opacity: 0, scale: 0.9, x: 50 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              exit={{ opacity: 0, scale: 0.9, x: -50 }}
-              transition={{ duration: 0.8 }}
-              className="w-full max-w-md md:max-w-lg object-contain drop-shadow-2xl"
-              alt="Book Banner"
+              alt="Books"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="w-90 h-50 md:h-70 
+                rounded-2xl  max-w-md md:max-w-lg object-cover shadow-2xl"
             />
           </AnimatePresence>
-
-          {/* Floating Circle Decorations */}
-         
         </div>
       </div>
 
-      {/* Slide Dots */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
-        {slides.map((_, idx) => (
+      {/* DOTS */}
+      <div className="relative z-10 flex justify-center gap-3 pb-8">
+        {slides.map((_, i) => (
           <button
-            key={idx}
-            onClick={() => setCurrent(idx)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              idx === current ? "bg-white scale-125" : "bg-gray-400"
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-2.5 rounded-full transition-all duration-300 ${
+              i === current ? "w-8 bg-primary" : "w-2.5 bg-gray-400/70"
             }`}
           />
         ))}
       </div>
+
+      {/* SCROLL HINT */}
+      <motion.div
+        animate={{ y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 1.4 }}
+        className="absolute bottom-3 left-1/2 -translate-x-1/2 text-gray-700"
+      >
+        <ChevronsDown size={26} />
+      </motion.div>
     </section>
   );
 };

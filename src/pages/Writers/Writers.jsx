@@ -39,7 +39,6 @@ const authors = [
 const Writers = () => {
   return (
    <section className="relative py-24 bg-gradient-to-b from-[#5E2A2B80]  via-[#C9A99A] to-[#FBF9D1] overflow-hidden">
-
       <div className="absolute top-0 left-0 w-72 h-72 bg-[#C9A99A] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96  rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
 
@@ -68,13 +67,22 @@ const Writers = () => {
                   className="w-full h-72 object-cover rounded-3xl"
                 />
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex flex-col justify-end p-6 rounded-3xl">
-                  <h3 className="text-xl font-bold text-white">{author.name}</h3>
-                  <p className="text-gray-200 text-sm mt-1">{author.bio}</p>
+                <div className="absolute inset-0 bg-black/70 opacity-0 hover:opacity-100 transition-opacity flex flex-col justify-end p-6 rounded-3xl">
+                  <h3 className="text-xl font-bold text-gray-100">{author.name}</h3>
+                  <p className="text-gray-300 text-sm mt-1">{author.bio}</p>
                  
-                    <button className="mt-4 bg-primary hover:bg-secondary hover:text-black  text-white py-2 px-4 rounded-lg font-semibold transition-all">
-                      View Books
-                    </button>
+                      <div className="pt-2">
+                                    <Link to="/all-books">
+                                      <motion.button
+                                        whileHover={{ y: -2 }}
+                                        whileTap={{ scale: 0.96 }}
+                                        transition={{ type: "spring", stiffness: 300 }}
+                                        className="inline-flex items-center gap-2 px-8 py-3  bg-primary/70  rounded-xl  text-white font-semibold shadow-lg hover:shadow-xl"
+                                      >
+                                        View Books
+                                      </motion.button>
+                                    </Link>
+                                  </div>
                  
                 </div>
               </div>

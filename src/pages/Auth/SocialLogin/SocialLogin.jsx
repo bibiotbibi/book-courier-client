@@ -29,7 +29,7 @@ const SocialLogin = () => {
 
   return (
     <div className="text-center pb-5">
-      <p className="mb-3">OR</p>
+    
 
       <button
         onClick={handleGoogleSignIn}

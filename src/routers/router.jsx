@@ -24,6 +24,7 @@ import SellerRoute from "./SellerRoute";
 import AdminRoute from "./AdminRoute";
 import MyWishlist from "../pages/MyWishlist/MyWishlist";
 import Invoices from "../pages/Dashboard/Customer/Invoices";
+import AboutBookCourier from "../pages/AboutBookCourier/AboutBookCourier";
 
 
 export const router = createBrowserRouter([
@@ -37,7 +38,7 @@ export const router = createBrowserRouter([
         Component: Home
       },
       {
-        path:'/covarage',
+        path:'/coverage',
         Component: Coverage,
         loader: () => fetch('/services.json').then(res => res.json())
       },
@@ -48,9 +49,9 @@ export const router = createBrowserRouter([
       {
         path: '/book-details/:id',
         element: (
-          <PrivateRoute>
+         
             <BookDetails />
-          </PrivateRoute>
+          
         )
       },
       {
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
       {
         path: '/wishlist',
         element: <MyWishlist></MyWishlist>
+      },
+      {
+        path: '/about-us',
+        element: <AboutBookCourier></AboutBookCourier>
       }
    
     ]
